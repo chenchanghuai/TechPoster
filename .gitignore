@@ -1,0 +1,9 @@
+.DS_Store
+
+# 生成产物目录：保留目录结构（.gitkeep），不跟踪成果物
+posters/*
+!posters/.gitkeep
+diagrams/*
+!diagrams/.gitkeep
+raw_articles/*
+!raw_articles/.gitkeep
