@@ -69,7 +69,7 @@ URL: ...
 
 ### Step 4: 生成 HTML 海报
 
-按 Step 2 判定的材料类型选择模板（类型 A → `templates/poster_principle.html`，类型 B → `templates/poster_news.html`），填充占位符。设计规范（尺寸、背景、字体、卡片样式）已在模板中固化，勿在 CLAUDE.md 重复维护。每篇只需：
+按 Step 2 判定的材料类型选择对应模板（类型 → 模板的映射见 Step 3「材料类型与模块分流」，以该处为唯一出处），填充占位符。设计规范（尺寸、背景、字体、卡片样式）已在模板中固化，勿在 CLAUDE.md 重复维护。每篇只需：
 
 - 选定一组主题色（蓝紫 / 蓝青 / 紫粉等）填入 `{{COLOR_*}}` / `{{*_GRADIENT}}` 占位符
 - 按 6 模块填入文案，`{{VALUE_POINTS}}` 渲染为 `<li>` 列表项，`{{DIAGRAM_PATH}}` 指向 `../diagrams/diagram_<主题关键词>.svg`，`{{ARTICLE_URL}}` 填原始文章链接（以文本形式展示于底部，不用二维码）
