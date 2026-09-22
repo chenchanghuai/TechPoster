@@ -78,15 +78,16 @@ URL: ...
 
 ### Step 5: 输出 PNG
 
+使用 `scripts/render_poster.py`（自包含，仅标准库）渲染。脚本先测高再按实际高度截图，PNG 与内容完全对齐、底部不会裁剪：
+
 ```bash
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
-  --headless --disable-gpu \
-  --screenshot=<output>.png \
-  --window-size=1080,1920 --hide-scrollbars \
-  file:///<path_to_html>
+python3 scripts/render_poster.py posters/poster_<主题关键词>.html
+# 默认输出同名 .png，也可传第二个参数显式指定输出路径
 ```
 
 文件命名：`posters/poster_<主题关键词>.html` / `posters/poster_<主题关键词>.png`，完成后在 `POSTERS.md` 索引中追加一行。
+
+> 高度说明：海报宽度固定 1080，高度以 1920 为下限、随内容自适应（模板 `min-height`），不存在内容裁底问题。截图后仍目视核验整体排版与底部文章来源区。
 
 ## 项目结构
 
@@ -95,7 +96,8 @@ TechPoster/
 ├── CLAUDE.md                    # 本文件（工作流规范）
 ├── POSTERS.md                   # 已完成海报索引
 ├── scripts/
-│   └── fetch_article.py         # 文章抓取脚本（自包含，仅标准库）
+│   ├── fetch_article.py         # 文章抓取脚本（自包含，仅标准库）
+│   └── render_poster.py         # 海报渲染脚本（测高 + 定高截图，仅标准库）
 ├── templates/
 │   ├── poster_principle.html    # 类型 A 模板：技术原理类
 │   └── poster_news.html         # 类型 B 模板：行业资讯类
@@ -109,4 +111,4 @@ TechPoster/
 - 微信公众号链接必须用 `fetch_article.py` 抓取，WebFetch 无法访问
 - 如果文章很长，海报文案要敢于舍弃细节，保留结构和洞见
 - Chrome headless 截图在 macOS 上会有 `CVDisplayLink` 警告，不影响输出
-- `.poster` 为 1080×1920 固定高度 + overflow 裁剪：文案变长会无声挤出底部文章来源区。Step 5 截图后必须目视核验底部链接完整可见；超版时优先压缩文案，而非缩小字号
+- 海报宽度固定 1080、高度 ≥1920 随内容自适应（`min-height`），不存在内容裁底；`scripts/render_poster.py` 会自动测高截图，但仍需目视核验整体排版
