@@ -87,6 +87,8 @@ python3 scripts/render_poster.py posters/poster_<主题关键词>.html
 
 文件命名：`posters/poster_<主题关键词>.html` / `posters/poster_<主题关键词>.png`，完成后在 `POSTERS.md` 索引中追加一行。
 
+**成果物同步（强制）**：若任务在 worktree / 后台目录中执行，渲染并核验完成后，必须将本次新增的成果物同步到主检出目录（`/Users/changhuai/Work/Claude/Research/TechPoster/`），包括：`posters/`、`diagrams/`、`raw_articles/` 下本次新增的文件，以及更新后的 `POSTERS.md`。同步用复制覆盖（`cp`），不移动；主目录须始终持有最新成品，worktree 生命周期不影响成果物留存。
+
 > 高度说明：海报宽度固定 1080，高度以 1920 为下限、随内容自适应（模板 `min-height`），不存在内容裁底问题。截图后仍目视核验整体排版与底部文章来源区。
 
 ## 项目结构
