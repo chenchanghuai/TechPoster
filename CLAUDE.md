@@ -109,3 +109,4 @@ TechPoster/
 - 微信公众号链接必须用 `fetch_article.py` 抓取，WebFetch 无法访问
 - 如果文章很长，海报文案要敢于舍弃细节，保留结构和洞见
 - Chrome headless 截图在 macOS 上会有 `CVDisplayLink` 警告，不影响输出
+- `.poster` 为 1080×1920 固定高度 + overflow 裁剪：文案变长会无声挤出底部文章来源区。Step 5 截图后必须目视核验底部链接完整可见；超版时优先压缩文案，而非缩小字号
