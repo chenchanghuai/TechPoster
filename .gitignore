@@ -7,3 +7,4 @@ diagrams/*
 !diagrams/.gitkeep
 raw_articles/*
 !raw_articles/.gitkeep
+.env-proxy
