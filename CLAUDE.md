@@ -53,7 +53,7 @@ URL: ...
 - 模块：核心观点 / 技术原理 / 技术价值分析 / 适用场景 / 标签
 - 模板：`templates/poster_principle.html`
 - 专属规则：
-  - 技术原理 ≤200 字讲清机制，并配套生成 SVG 流程图（存于 `diagrams/diagram_<主题关键词>.svg`）
+  - 技术原理 ≤200 字讲清机制，并配套生成 SVG 流程图（存于 `diagrams/diagram_YYYY-MM-DD_<主题关键词>.svg`）
   - 技术价值分析：分条列举，每条一句话，且遵循三条原则：
     - 去重：同一维度的价值只保留一条，宁可合并也不重复陈述（如成本类条目合并为一条）
     - 聚焦技术：剔除营销手段、运营数据、市场热度等非技术现象，只锚定技术特性本身
@@ -63,7 +63,7 @@ URL: ...
 - 特征：行业动态、新品发布、厂商动向、事件盘点，主体是"发生了什么"，而非机制
 - 模板：`templates/poster_news.html`
 - 模块对应关系：
-  - 事件全景（替代技术原理）：≤200 字梳理事件脉络、各方动作与关键数据；配套生成 SVG 全景图（时间线 / 对阵图 / 关系图，存于 `diagrams/diagram_<主题关键词>.svg`）
+  - 事件全景（替代技术原理）：≤200 字梳理事件脉络、各方动作与关键数据；配套生成 SVG 全景图（时间线 / 对阵图 / 关系图，存于 `diagrams/diagram_YYYY-MM-DD_<主题关键词>.svg`）
   - 关键信号（替代技术价值分析）：分条列举，每条一个维度；区分事实与传闻——未经官方确认的信息（灰测、代号、据传）必须标注
 - 禁忌：资讯类没有"技术原理"可讲，不得把厂商动态包装成机制讲解；不得为凑模块强行提炼不存在的"价值分析"
 
@@ -78,7 +78,7 @@ URL: ...
 按 Step 2 判定的材料类型选择对应模板（类型 → 模板的映射见 Step 3「材料类型与模块分流」，以该处为唯一出处），填充占位符。设计规范（尺寸、背景、字体、卡片样式）已在模板中固化，勿在 CLAUDE.md 重复维护。每篇只需：
 
 - 选定一组主题色（蓝紫 / 蓝青 / 紫粉等）填入 `{{COLOR_*}}` / `{{*_GRADIENT}}` 占位符
-- 按 6 模块填入文案，`{{VALUE_POINTS}}` 渲染为 `<li>` 列表项，`{{DIAGRAM_PATH}}` 指向 `../diagrams/diagram_<主题关键词>.svg`，`{{ARTICLE_URL}}` 填原始文章链接（以文本形式展示于底部，不用二维码）
+- 按 6 模块填入文案，`{{VALUE_POINTS}}` 渲染为 `<li>` 列表项，`{{DIAGRAM_PATH}}` 指向 `../diagrams/diagram_YYYY-MM-DD_<主题关键词>.svg`，`{{ARTICLE_URL}}` 填原始文章链接（以文本形式展示于底部，不用二维码）
 
 > 模板维护纪律：各类型模板的公共样式（尺寸、背景、字体、卡片、glow）必须保持一致。修改设计规范时以 `templates/poster_principle.html` 为基准改完，同步到其它类型模板。
 
@@ -87,13 +87,18 @@ URL: ...
 使用 `scripts/render_poster.py`（自包含，仅标准库）渲染。脚本先测高再按实际高度截图，PNG 与内容完全对齐、底部不会裁剪：
 
 ```bash
-python3 scripts/render_poster.py posters/poster_<主题关键词>.html
+python3 scripts/render_poster.py posters/poster_YYYY-MM-DD_<主题关键词>.html
 # 默认输出同名 .png，也可传第二个参数显式指定输出路径
 ```
 
-文件命名：`posters/poster_<主题关键词>.html` / `posters/poster_<主题关键词>.png`，完成后在 `POSTERS.md` 索引中追加一行。
+文件命名（成果物目录均为 gitignore，无版本控制兜底，日期前缀用于按时间排序并防止同主题跨日期互相覆盖）：
+- 海报：`posters/poster_YYYY-MM-DD_<主题关键词>.html` / `.png`（日期为文章发布或制作日期，取 `POSTERS.md` 登记日期）
+- 流程图：`diagrams/diagram_YYYY-MM-DD_<主题关键词>.svg`
+- 原始文章：`raw_articles/` 同理加日期前缀
 
-**成果物同步（强制）**：若任务在 worktree / 后台目录中执行，渲染并核验完成后，必须将本次新增的成果物同步到主检出目录（`/Users/changhuai/Work/Claude/Research/TechPoster/`），包括：`posters/`、`diagrams/`、`raw_articles/` 下本次新增的文件，以及更新后的 `POSTERS.md`。同步用复制覆盖（`cp`），不移动；主目录须始终持有最新成品，worktree 生命周期不影响成果物留存。
+完成后在 `POSTERS.md` 索引中追加一行（链接用带日期前缀的文件名）。
+
+**成果物同步（强制）**：若任务在 worktree / 后台目录中执行，渲染并核验完成后，必须将本次新增的成果物同步到主检出目录（`/Users/changhuai/Work/Claude/Research/TechPoster/`），包括：`posters/`、`diagrams/`、`raw_articles/` 下本次新增的文件，以及更新后的 `POSTERS.md`。同步用复制覆盖（`cp`），不移动；重命名 / 删除旧文件时须同步清理主目录中的旧名文件，避免新旧并存；主目录须始终持有最新成品，worktree 生命周期不影响成果物留存。
 
 > 高度说明：海报宽度固定 1080，高度以 1920 为下限、随内容自适应（模板 `min-height`），不存在内容裁底问题。截图后仍目视核验整体排版与底部文章来源区。
 
@@ -110,8 +115,8 @@ TechPoster/
 │   ├── poster_principle.html    # 类型 A 模板：技术原理类
 │   └── poster_news.html         # 类型 B 模板：行业资讯类
 ├── raw_articles/                # 抓取的文章原始内容（txt + html）
-├── diagrams/                    # 技术原理流程图（diagram_<主题关键词>.svg）
-└── posters/                     # 成品海报（poster_<主题关键词>.html/png）
+├── diagrams/                    # 技术原理流程图（diagram_YYYY-MM-DD_<主题关键词>.svg）
+└── posters/                     # 成品海报（poster_YYYY-MM-DD_<主题关键词>.html/png）
 ```
 
 ## 注意事项
