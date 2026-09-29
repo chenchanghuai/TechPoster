@@ -82,9 +82,9 @@ URL: ...
 
 > 模板维护纪律：各类型模板的公共样式（尺寸、背景、字体、卡片、glow）必须保持一致。修改设计规范时以 `templates/poster_principle.html` 为基准改完，同步到其它类型模板。
 
-### Step 5: 输出 PNG
+### Step 5: 输出 PNG（可选，默认不输出）
 
-使用 `scripts/render_poster.py`（自包含，仅标准库）渲染。脚本先测高再按实际高度截图，PNG 与内容完全对齐、底部不会裁剪：
+海报主要用于自己阅读，HTML 版本即默认成品，**不主动渲染 PNG**。仅当用户明确要求图片版本时，才使用 `scripts/render_poster.py`（自包含，仅标准库）渲染。脚本先测高再按实际高度截图，PNG 与内容完全对齐、底部不会裁剪：
 
 ```bash
 python3 scripts/render_poster.py posters/poster_YYYY-MM-DD_<主题关键词>.html
@@ -92,15 +92,15 @@ python3 scripts/render_poster.py posters/poster_YYYY-MM-DD_<主题关键词>.htm
 ```
 
 文件命名（成果物目录均为 gitignore，无版本控制兜底，日期前缀用于按时间排序并防止同主题跨日期互相覆盖）：
-- 海报：`posters/poster_YYYY-MM-DD_<主题关键词>.html` / `.png`（日期为文章发布或制作日期，取 `POSTERS.md` 登记日期）
+- 海报：`posters/poster_YYYY-MM-DD_<主题关键词>.html`（PNG 为按需产物）
 - 流程图：`diagrams/diagram_YYYY-MM-DD_<主题关键词>.svg`
 - 原始文章：`raw_articles/` 同理加日期前缀
 
-完成后在 `POSTERS.md` 索引中追加一行（链接用带日期前缀的文件名）。
+完成后在 `POSTERS.md` 索引中追加一行（链接用带日期前缀的文件名；未输出 PNG 时 PNG 列填 `—`）。
 
-**成果物同步（强制）**：若任务在 worktree / 后台目录中执行，渲染并核验完成后，必须将本次新增的成果物同步到主检出目录（`/Users/changhuai/Work/Claude/Research/TechPoster/`），包括：`posters/`、`diagrams/`、`raw_articles/` 下本次新增的文件，以及更新后的 `POSTERS.md`。同步用复制覆盖（`cp`），不移动；重命名 / 删除旧文件时须同步清理主目录中的旧名文件，避免新旧并存；主目录须始终持有最新成品，worktree 生命周期不影响成果物留存。
+**成果物同步（强制）**：若任务在 worktree / 后台目录中执行，制作并核验完成后，必须将本次新增的成果物同步到主检出目录（`/Users/changhuai/Work/Claude/Research/TechPoster/`），包括：`posters/`、`diagrams/`、`raw_articles/` 下本次新增的文件，以及更新后的 `POSTERS.md`。同步用复制覆盖（`cp`），不移动；重命名 / 删除旧文件时须同步清理主目录中的旧名文件，避免新旧并存；主目录须始终持有最新成品，worktree 生命周期不影响成果物留存。
 
-> 高度说明：海报宽度固定 1080，高度以 1920 为下限、随内容自适应（模板 `min-height`），不存在内容裁底问题。截图后仍目视核验整体排版与底部文章来源区。
+> 高度说明：海报宽度固定 1080，高度以 1920 为下限、随内容自适应（模板 `min-height`），不存在内容裁底问题。输出 PNG 后仍目视核验整体排版与底部文章来源区。
 
 ## 项目结构
 
@@ -116,7 +116,7 @@ TechPoster/
 │   └── poster_news.html         # 类型 B 模板：行业资讯类
 ├── raw_articles/                # 抓取的文章原始内容（txt + html）
 ├── diagrams/                    # 技术原理流程图（diagram_YYYY-MM-DD_<主题关键词>.svg）
-└── posters/                     # 成品海报（poster_YYYY-MM-DD_<主题关键词>.html/png）
+└── posters/                     # 成品海报（poster_YYYY-MM-DD_<主题关键词>.html，PNG 按需）
 ```
 
 ## 注意事项
