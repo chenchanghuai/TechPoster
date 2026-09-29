@@ -19,3 +19,8 @@
 | 2026-09-29 | Dream-RSI：离线做梦，在线进化 | 技术原理（类型 A） | [poster_2026-09-29_dream_rsi.html](posters/poster_2026-09-29_dream_rsi.html) | — | [极市平台](https://mp.weixin.qq.com/s/ja2FQBfRD-z1KG0sftB-vw) |
 | 2026-09-29 | Codex 再曝 0day：被中国 AI 反杀 | 行业资讯（类型 B） | [poster_2026-09-29_codex_0day.html](posters/poster_2026-09-29_codex_0day.html) | — | [新智元](https://mp.weixin.qq.com/s/Btw4KyoZS_fc0H1WGow5gA) |
 | 2026-09-29 | Manus 2.0：Agent 升级为「数字员工」 | 行业资讯（类型 B） | [poster_2026-09-29_manus_2_cue.html](posters/poster_2026-09-29_manus_2_cue.html) | — | [机器之心](https://mp.weixin.qq.com/s/ZQEe0ws4NNJaR-MaGumbHw) |
+| 2026-09-29 | RAWild：一个模型适配所有相机 | 技术原理（类型 A） | [poster_2026-09-29_rawild.html](posters/poster_2026-09-29_rawild.html) | — | [CVer](https://mp.weixin.qq.com/s/yZ4KCyfzz9EpXjklK03SGA) |
+| 2026-09-29 | 隔离失效：1200 个 AI 联手越权 | 行业资讯（类型 B） | [poster_2026-09-29_exploitgym_swarm.html](posters/poster_2026-09-29_exploitgym_swarm.html) | — | [新智元](https://mp.weixin.qq.com/s/a5Et6Ybv1LBww8ALSFJBiQ) |
+| 2026-09-29 | 数学只是多智能体时代的开胃菜 | 行业资讯（类型 B） | [poster_2026-09-29_noam_brown_multiagent.html](posters/poster_2026-09-29_noam_brown_multiagent.html) | — | [量子位](https://mp.weixin.qq.com/s/6-FqoV2H1ZShD9I-KAQAKg) |
+| 2026-09-29 | 撬开 Astra 的隐藏思维链 | 技术原理（类型 A） | [poster_2026-09-29_astra_hidden_cot.html](posters/poster_2026-09-29_astra_hidden_cot.html) | — | [机器之心](https://mp.weixin.qq.com/s/KprZA12Sbbhp5E4Z_pvHGg) |
+| 2026-09-29 | IQuest-Q1：15B 激活的开源黑马 | 行业资讯（类型 B） | [poster_2026-09-29_iquest_q1.html](posters/poster_2026-09-29_iquest_q1.html) | — | [机器之心](https://mp.weixin.qq.com/s/Qr-GyQWBHlC7nhFKO19a9A) |
