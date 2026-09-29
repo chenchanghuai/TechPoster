@@ -4,7 +4,7 @@
 |---|---|---|---|---|---|
 | 2026-09-22 | GPT-6 Sol 发布前夜 | 行业资讯（类型 B） | [poster_gpt6_sol.html](posters/poster_2026-09-22_gpt6_sol.html) | — | [新智元](https://mp.weixin.qq.com/s/dePL3o2_zsK1uWBpoha2nw) |
 | 2026-09-22 | U1 Pro 交付级创作管线 | 技术原理（类型 A） | [poster_sensenova_u1_pro.html](posters/poster_2026-09-22_sensenova_u1_pro.html) | — | [商汤科技 SenseTime](https://mp.weixin.qq.com/s/YDCzSowKhP4MigY3GN6VNQ) |
-| 2026-09-22 | 自动打框横评：谁适合预标注 | 技术原理（类型 A） | [poster_prelabel_eval.html](posters/poster_2026-09-22_prelabel_eval.html) | — | [极市平台](https://mp.weixin.qq.com/s/ZAL_auuSWHyw-CaLIwB2Ew) |
+| 2026-09-22 | 自动打框横评：谁适合预标注 | 测评横评（类型 C） | [poster_prelabel_eval.html](posters/poster_2026-09-22_prelabel_eval.html) | — | [极市平台](https://mp.weixin.qq.com/s/ZAL_auuSWHyw-CaLIwB2Ew) |
 | 2026-09-22 | Grok 4.7 上线：全球第三？ | 行业资讯（类型 B） | [poster_grok_4_7.html](posters/poster_2026-09-22_grok_4_7.html) | — | [新智元](https://mp.weixin.qq.com/s/2CFRrDRrbX-uMnKonA6aAg) |
 | 2026-09-22 | HiDream V1 杀入全球前四 | 行业资讯（类型 B） | [poster_hidream_v1.html](posters/poster_2026-09-22_hidream_v1.html) | — | [新智元](https://mp.weixin.qq.com/s/9SVMsI0wdOvDibTNGa2vIQ) |
 | 2026-09-22 | 机器智能时代三大基石 | 行业资讯（类型 B） | [poster_machine_intelligence.html](posters/poster_2026-09-22_machine_intelligence.html) | — | [阿里研究院](https://mp.weixin.qq.com/s/I72HGhiKQ_gq6kgrM3KP4w) |
